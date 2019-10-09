@@ -1,0 +1,42 @@
+body {
+    background: lightgoldenrodyellow;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.frame {
+    background: white;
+    border: 3px solid gray;
+    width: 50vw;
+    height: 12vw;
+    padding: 10px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.marcador {
+    background: lightgray;
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px 10px 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    width: 60%;
+    height: 100%;
+
+    font-size: 2vw;
+}
