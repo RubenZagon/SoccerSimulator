@@ -42,4 +42,5 @@ console.log(Equipazos[0].team)
 
 const marcador = document.querySelector('.marcador')
 
+
 marcador.innerHTML = Equipazos[0].team + "  " + Equipazos[0].points + "  -  " + Equipazos[1].team + "  " + Equipazos[1].points
