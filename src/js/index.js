@@ -8,7 +8,7 @@
 
 
 const marcador = document.querySelector('.marcador')
-const boton = document.querySelector('.btnPartido')
+const boton =    document.querySelector('.btnPartido')
 
 const TEAMS = ['Real Madrid', 'Barcelona', 'Tenerife', 'Gran Canaria']
 
@@ -19,45 +19,40 @@ class Equipo {
         this.points = p
     }
 
-    getTeam() {
-        return Equipo.team
+    generateTeamAndPoints () {
+        this.team = Math.floor(Math.random() * numb)
     }
-
-    getPoints() {
-        return Equipo.points
-    }
-
 }
 
 const getRandomNumber = (numb) => {
     return Math.floor(Math.random() * numb);
 }
 
+let indice = 2 //TEAMS.length
+
 const generateTeams = () => {
     let equipos = []
 
-    for (i = 0; i < TEAMS.length; i++) {
-
-        //Necesito generar un número aleatorio con lo ancho del array de equipos, luego en cada pasada del for, ir añadiendo ese equipo con una puntuación random y quitandolo del array - Tal vez utilizar .filter
-
-        equipo = new Equipo(TEAMS[getRandomNumber(TEAMS.length)], getRandomNumber(5))
-        //        if (equipos != 'equipos')  //Aqui poner algo para buscar que no esté ya en el array de dentro
-
+    for (i = 0; i < indice; i++) {
+        equipo = new Equipo(TEAMS[getRandomNumber(indice)], getRandomNumber(5))
         equipos.push(equipo)
     }
     return equipos
 }
 
-let Equipazos = generateTeams()
 
-/*
-console.table(generateTeams())
-console.log(Equipazos[0].team)
-*/
+const setScoreboard = () => {
+    let Equipazos = generateTeams(),
+        Equipo1 = Equipazos[0].team + "  " + Equipazos[0].points,
+        Equipo2 = Equipazos[1].team + "  " + Equipazos[1].points
 
-const setScoreboard = (array) => {
-    console.log('apretar boton')
-    return array[0].team + "  " + array[0].points + "  -  " + array[1].team + "  " + array[1].points
+    if (Equipazos[0].team == Equipazos[1].team) {
+        marcador.textContent = 'Pulsa otra vez'
+    } else {
+        marcador.textContent = Equipo1 + "  -  " + Equipo2
+    }
+
+
 }
 
-boton.addEventListener('click', marcador.innerHTML = setScoreboard(Equipazos));
+boton.addEventListener('click', setScoreboard);
