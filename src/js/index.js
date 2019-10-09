@@ -28,7 +28,7 @@ const getRandomNumber = (numb) => {
     return Math.floor(Math.random() * numb);
 }
 
-let indice = 2 //TEAMS.length
+let indice = TEAMS.length
 
 const generateTeams = () => {
     let equipos = []
